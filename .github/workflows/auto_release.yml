@@ -1,0 +1,44 @@
+name: Auto Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Extract Version and Detail
+        id: extract
+        run: |
+          COMMIT_MESSAGE=$(git log --format=%B -n 1 ${{ github.sha }})
+          VERSION=$(echo $COMMIT_MESSAGE | grep -oP '(?<=publish\s)[vV]\d+\.\d+\.\d+')
+          DETAIL=$(echo $COMMIT_MESSAGE | grep -oP '(?<=:\s).*$')
+          echo "Version: $VERSION"
+          echo "Detail: $DETAIL"
+          echo "::set-output name=version::$VERSION"
+          echo "::set-output name=detail::$DETAIL"
+
+      - name: Create Release
+        uses: actions/github-script@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          script: |
+            const version = "${{ steps.extract.outputs.version }}"
+            const detail = "${{ steps.extract.outputs.detail }}"
+            const octokit = require('@octokit/rest')();
+
+            octokit.repos.createRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag_name: version,
+              name: version,
+              body: detail,
+              draft: false,
+              prerelease: false
+            });
