@@ -6,39 +6,29 @@ on:
       - master
 
 jobs:
-  create_release:
+  create-release:
+    name: Create Release
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
 
-      - name: Extract Version and Detail
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Extract Version and Details
         id: extract
         run: |
-          COMMIT_MESSAGE=$(git log --format=%B -n 1 ${{ github.sha }})
-          VERSION=$(echo $COMMIT_MESSAGE | grep -oP '(?<=publish\s)[vV]\d+\.\d+\.\d+')
-          DETAIL=$(echo $COMMIT_MESSAGE | grep -oP '(?<=:\s).*$')
-          echo "Version: $VERSION"
-          echo "Detail: $DETAIL"
-          echo "::set-output name=version::$VERSION"
-          echo "::set-output name=detail::$DETAIL"
+          commit_message=$(git log --format=%B -n 1 ${{ github.sha }})
+          version=$(echo $commit_message | grep -oP '(?<=publish\s)\S+')
+          details=$(echo $commit_message | grep -oP '(?<=:\s).*')
+          echo "::set-output name=version::$version"
+          echo "::set-output name=details::$details"
 
       - name: Create Release
-        uses: actions/github-script@v5
+        id: create_release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          script: |
-            const version = "${{ steps.extract.outputs.version }}"
-            const detail = "${{ steps.extract.outputs.detail }}"
-            const octokit = require('@octokit/rest')();
-
-            octokit.repos.createRelease({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              tag_name: version,
-              name: version,
-              body: detail,
-              draft: false,
-              prerelease: false
-            });
+          tag_name: ${{ steps.extract.outputs.version }}
+          release_name: ${{ steps.extract.outputs.version }}
+          body: ${{ steps.extract.outputs.details }}
