@@ -18,7 +18,7 @@ jobs:
         id: extract
         run: |
           commit_message=$(git log --format=%B -n 1 ${{ github.sha }})
-          version=$(echo $commit_message | grep -oP '(?<=publish\s)\S+')
+          version=$(echo $commit_message | grep -oP '(?<=publish\s):\S+')
           details=$(echo $commit_message | grep -oP '(?<=:\s).*')
           echo "::set-output name=version::$version"
           echo "::set-output name=details::$details"
