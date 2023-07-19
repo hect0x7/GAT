@@ -3,33 +3,34 @@ name: 下载JM本子
 on:
   workflow_dispatch:
     inputs:
-      album_ids:
+      ALBUM_IDS:
         type: string
         description: 本子id（多个id用-隔开，如 '123-456-789'）
         required: true
         default: ''
 
-      jm_username:
+      JM_USERNAME:
         type: string
         default: ''
-        description: 禁漫用户名（可不填）
+        description: '禁漫用户名（可不填）
+        你的用户名和密码会被暴露在日志中。建议使用 secrets 方式。
+        '
         required: false
-        deprecationMessage: 你的用户名和密码会被暴露在日志中。建议使用 secrets 方式。
 
-      jm_password:
+      JM_PASSWORD:
         type: string
         default: ''
-        description: 禁漫密码（可不填）
+        description: '禁漫密码（可不填）
+        你的用户名和密码会被暴露在日志中。建议使用 secrets 方式。'
         required: false
-        deprecationMessage: 你的用户名和密码会被暴露在日志中。建议使用 secrets 方式。
 
-      zip_name:
+      ZIP_NAME:
         type: string
         default: 本子.tar.gz
         description: 压缩文件名称
         required: false
 
-      upload_name:
+      UPLOAD_NAME:
         type: string
         default: 下载完成的本子
         description: 上传文件名称
@@ -40,24 +41,15 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # 工作流输入
-      ALBUM_IDS: ${{ github.event.inputs.album_ids }}
-      JM_USERNAME: ${{ github.event.inputs.jm_username }}
-      JM_PASSWORD: ${{ github.event.inputs.jm_password }}
-      ZIP_NAME: ${{ github.event.inputs.zip_name }}
-      UPLOAD_NAME: ${{ github.event.inputs.upload_name }}
+      ALBUM_IDS: ${{ github.event.inputs.ALBUM_IDS }}
+      JM_USERNAME: ${{ github.event.inputs.JM_USERNAME }}
+      JM_PASSWORD: ${{ github.event.inputs.JM_PASSWORD }}
+      ZIP_NAME: ${{ github.event.inputs.ZIP_NAME }}
+      UPLOAD_NAME: ${{ github.event.inputs.UPLOAD_NAME }}
       # 固定值
       JM_DOWNLOAD_DIR: /home/runner/work/jmcomic/download/
 
     steps:
-      - name: 安全设置用户名密码
-        run: |
-          if [[ -n "${{ github.event.inputs.jm_password }}" ]]; then
-            echo "::set-env name=A::${{ github.event.inputs.JM_PASSWORD }}"
-          else
-            echo "::set-env name=A::${{ secrets.A }}"
-          fi
-        shell: bash
-
       - name: test env
         run: |
-          echo ${{ env.A }}
+          echo ${{ env.ALBUM_IDS }}
