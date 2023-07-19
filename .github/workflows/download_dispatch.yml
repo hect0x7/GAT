@@ -12,16 +12,13 @@ on:
       JM_USERNAME:
         type: string
         default: ''
-        description: '禁漫用户名（可不填）
-        你的用户名和密码会被暴露在日志中。建议使用 secrets 方式。
-        '
+        description: '禁漫帐号（不建议使用，用户名和密码会泄露在日志中。最好用secrets）'
         required: false
 
       JM_PASSWORD:
         type: string
         default: ''
-        description: '禁漫密码（可不填）
-        你的用户名和密码会被暴露在日志中。建议使用 secrets 方式。'
+        description: '禁漫密码（不建议使用，用户名和密码会泄露在日志中。最好用secrets）'
         required: false
 
       ZIP_NAME:
