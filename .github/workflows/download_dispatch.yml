@@ -30,7 +30,7 @@ on:
       upload_name:
         type: string
         default: '下载完成的本子'
-        description: '禁漫密码'
+        description: '上传工件名'
         required: false
 
 jobs:
