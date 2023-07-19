@@ -5,7 +5,7 @@ on:
     inputs:
       album_ids:
         type: string
-        description: '本子id 一行一个'
+        description: "本子id（多个id用-隔开，如 '123-456-789'）"
         required: true
         default: ''
 
