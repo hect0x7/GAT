@@ -24,13 +24,13 @@ on:
       zip_name:
         type: string
         default: '本子.tar.gz'
-        description: '压缩文件名'
+        description: '压缩文件名称'
         required: false
 
       upload_name:
         type: string
         default: '下载完成的本子'
-        description: '上传工件名'
+        description: '上传文件名称'
         required: false
 
 jobs:
