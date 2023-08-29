@@ -12,8 +12,8 @@ def get_domain_ls():
     domain_set: Set[str] = set()
 
     def fetch_domain(url):
-        import requests as r
-        text = r.get(url, allow_redirects=False).text
+        postman = JmModuleConfig.new_postman()
+        text = postman.get(url, allow_redirects=False).text
         for domain in JmcomicText.analyse_jm_pub_html(text):
             domain_set.add(domain)
 
