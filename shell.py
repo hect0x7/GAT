@@ -1,7 +1,6 @@
 from jmcomic import *
 
 option = JmOption.default()
-option.client.domain = ['18comic.vip']
 
 def get_domain_ls():
     template = 'https://jmcmomic.github.io/go/{}.html'
@@ -29,8 +28,8 @@ status_dict = {}
 
 
 def test_domain(domain: str):
-    client: JmHtmlClient = option.new_jm_client()
-    client.domain_list = [domain]
+    client: JmcomicClient = option.new_jm_client()
+    client.set_domain_list([domain])
     msg = 'ok'
 
     try:
