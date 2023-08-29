@@ -1,7 +1,7 @@
 from jmcomic import *
 
 option = JmOption.default()
-
+option.client.domain = ['18comic.vip']
 
 def get_domain_ls():
     template = 'https://jmcmomic.github.io/go/{}.html'
@@ -39,7 +39,7 @@ def test_domain(domain: str):
         msg = str(e.args)
         pass
 
-    status_dict['domain'] = msg
+    status_dict[domain] = msg
 
 
 multi_thread_launcher(
