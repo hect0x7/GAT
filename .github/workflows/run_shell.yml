@@ -16,13 +16,8 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install Dependency
-        run: |
-          pip install requests
-
       - name: Run Python script
         id: id1
-        run: python shell.py
-
-      - name: Use script output
-        run: echo "The output is ${{ steps.id1.outputs.script-output }}"
+        run: |
+          output=$(python shell.py)
+          echo "The output is $output"
