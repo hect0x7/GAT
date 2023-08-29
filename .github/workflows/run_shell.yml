@@ -16,7 +16,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install Dependency
+        run: pip install jmcomic
+
       - name: Run Python script
         run: |
-          pip install jmcomic
           python shell.py

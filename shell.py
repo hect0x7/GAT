@@ -2,7 +2,7 @@ from jmcomic import *
 
 option = JmOption.default()
 domain_ls = option.new_jm_client().get_jmcomic_domain_all()
-status_list = {}
+status_dict = {}
 
 
 def test_domain(domain: str):
@@ -16,10 +16,13 @@ def test_domain(domain: str):
         msg = str(e.args)
         pass
 
-    status_list['domain'] = msg
+    status_dict['domain'] = msg
 
 
 multi_thread_launcher(
     iter_objs=domain_ls,
     apply_each_obj_func=test_domain,
 )
+
+for domain, status in status_dict.items():
+    print(f'{domain}: {status}')
