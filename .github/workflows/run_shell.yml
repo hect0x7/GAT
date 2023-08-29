@@ -17,7 +17,6 @@ jobs:
           python-version: "3.11"
 
       - name: Run Python script
-        id: id1
         run: |
-          output=$(python shell.py)
-          echo "The output is $output"
+          pip install jmcomic
+          python shell.py
