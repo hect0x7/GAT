@@ -28,8 +28,7 @@ status_dict = {}
 
 
 def test_domain(domain: str):
-    client: JmcomicClient = option.new_jm_client()
-    client.set_domain_list([domain])
+    client: JmcomicClient = option.new_jm_client(domain_list=[domain])
     msg = 'ok'
 
     try:
