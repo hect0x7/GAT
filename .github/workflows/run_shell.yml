@@ -20,6 +20,9 @@ jobs:
         run: |
           pip install requests
 
-      - name: Run Shell
-        run: |
-          python ./shell.py
+      - name: Run Python script
+        id: id1
+        run: python shell.py
+
+      - name: Use script output
+        run: echo "The output is ${{ steps.id1.outputs.script-output }}"
