@@ -1,8 +1,7 @@
 from jmcomic import *
 
-domain_ls = JmModuleConfig.get_jmcomic_domain_all()
 option = JmOption.default()
-
+domain_ls = option.new_jm_client().get_jmcomic_domain_all()
 status_list = {}
 
 
