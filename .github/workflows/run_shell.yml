@@ -1,0 +1,25 @@
+name: run shell
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  release:
+    name: run shell
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install Dependency
+        run: |
+          pip install requests
+
+      - name: Run Shell
+        run: |
+          python ./shell.py

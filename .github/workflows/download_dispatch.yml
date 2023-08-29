@@ -50,3 +50,4 @@ jobs:
       - name: test env
         run: |
           echo ${{ env.ALBUM_IDS }}
+        continue-on-error: true
