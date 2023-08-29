@@ -1,6 +1,3 @@
-import requests
-
-
 def main():
     # print(requests.get('https://ip.useragentinfo.com/json').text)
     print('aaa')
