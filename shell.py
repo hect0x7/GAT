@@ -1,7 +1,30 @@
 from jmcomic import *
 
 option = JmOption.default()
-domain_ls = option.new_jm_client().get_jmcomic_domain_all()
+
+
+def get_domain_ls():
+    template = 'https://jmcmomic.github.io/go/{}.html'
+    url_ls = [
+        template.format(i)
+        for i in range(300, 309)
+    ]
+    domain_set: Set[str] = set()
+
+    def fetch_domain(url):
+        import requests as r
+        text = r.get(url, allow_redirects=False).text
+        for domain in JmcomicText.analyse_jm_pub_html(text):
+            domain_set.add(domain)
+
+    multi_thread_launcher(
+        iter_objs=url_ls,
+        apply_each_obj_func=fetch_domain,
+    )
+    return domain_set
+
+
+domain_set = get_domain_ls()
 status_dict = {}
 
 
@@ -20,7 +43,7 @@ def test_domain(domain: str):
 
 
 multi_thread_launcher(
-    iter_objs=domain_ls,
+    iter_objs=domain_set,
     apply_each_obj_func=test_domain,
 )
 
