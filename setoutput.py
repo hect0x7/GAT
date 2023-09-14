@@ -7,7 +7,7 @@ def add_output(k, v):
 
 commit_message = sys.argv[1]
 print(sys.argv)
-p = compile('publish (.*?): (.*)')
+p = compile('(.*?): ?(.*)')
 match = p.search(commit_message)
 
 if match is None:
@@ -15,5 +15,5 @@ if match is None:
 
 ver, msg = match[1], match[2]
 
-add_output('version', ver)
-add_output('details', msg)
+add_output('tag', msg)
+add_output('body', ver)
