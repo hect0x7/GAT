@@ -6,6 +6,7 @@ def add_output(k, v):
 
 
 commit_message = sys.argv[1]
+print(sys.argv)
 p = compile('publish (.*?): (.*)')
 match = p.search(commit_message)
 
