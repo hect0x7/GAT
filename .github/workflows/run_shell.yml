@@ -21,4 +21,4 @@ jobs:
 
       - name: Run Python script
         run: |
-          jmcomic 123
+          jmcomic 123 --option='./a.yml'
