@@ -1,4 +1,5 @@
 client:
-  domain:
-    jmcomic1.me
-    jmcomic.me
+  domain: [
+    jmcomic1.me,
+    jmcomic.me,
+  ]

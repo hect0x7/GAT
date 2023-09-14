@@ -2,7 +2,6 @@ name: contributions
 
 on:
   workflow_dispatch:
-  push: 
 
 jobs:
   create-release:
