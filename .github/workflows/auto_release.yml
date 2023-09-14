@@ -26,7 +26,7 @@ jobs:
         run: |
           commit_message=$(git log --format=%B -n 1 ${{ github.sha }})
           pip install commonX
-          python setoutput.py commit_message
+          python setoutput.py $commit_message
 
       - name: Create Release
         id: create_release
