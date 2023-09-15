@@ -29,7 +29,6 @@ jobs:
           python setoutput.py "$commit_message"
 
       - name: Create Release
-        id: create_release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

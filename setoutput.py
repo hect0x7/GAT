@@ -6,14 +6,11 @@ def add_output(k, v):
 
 
 commit_message = sys.argv[1]
-print(sys.argv)
 p = compile('(.*?): ?(.*)')
 match = p.search(commit_message)
+assert match is not None, f'format is wrong: {commit_message}'
 
-if match is None:
-    raise NotImplementedError(f'format is wrong: {commit_message}')
+tag, body = match[1], match[2]
 
-ver, msg = match[1], match[2]
-
-add_output('tag', msg)
-add_output('body', ver)
+add_output('tag', tag)
+add_output('body', body)
