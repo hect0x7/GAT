@@ -34,25 +34,25 @@ body:
       label: 你使用的是哪种方式？
       multiple: false
       options:
-        - GitHub Actions
         - Python代码
+        - GitHub Actions
         - jmcomic命令行
-      default: 1
+      default: 0
     validations:
       required: true
 
   - type: textarea
     attributes:
       label: 你的目的？
-      placeholder: 简单描述一下你的目的
+      placeholder: 简单描述一下你想要做啥
 
   - type: textarea
     attributes:
       label: 你的做法？
-      placeholder: 简单描述一下你的做法
+      placeholder: 简单描述一下你做了啥
 
   - type: textarea
     attributes:
       label: 你遇到的问题？
-      placeholder: 简单描述一下你遇到的困难或者问题
+      placeholder: 简单描述一下你想问啥
 
