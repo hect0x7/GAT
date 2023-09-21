@@ -44,17 +44,17 @@ body:
   - type: markdown
     attributes:
       label: 你想要干什么？
-      placeholder: 描述一下你的目的
+      value: |
+        描述一下你的目的
 
   - type: markdown
     attributes:
       label: 你想要干什么？
-      placeholder: 描述一下你的目的
+      value: |
+        描述一下你的目的
+
   - type: markdown
     attributes:
       label: 你想要干什么？
-      placeholder: 描述一下你的目的
-  - type: markdown
-    attributes:
-      label: 你想要干什么？
-      placeholder: 描述一下你的目的
+      value: |
+        描述一下你的目的
