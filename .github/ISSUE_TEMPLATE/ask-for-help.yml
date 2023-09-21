@@ -43,18 +43,15 @@ body:
 
   - type: markdown
     attributes:
-      label: 你想要干什么？
       value: |
-        描述一下你的目的
+        简单描述一下你的目的
 
   - type: markdown
     attributes:
-      label: 你想要干什么？
       value: |
-        描述一下你的目的
+        简单描述一下你的做法
 
   - type: markdown
     attributes:
-      label: 你想要干什么？
       value: |
-        描述一下你的目的
+        简单描述一下你遇到的困难或者问题
