@@ -25,13 +25,12 @@ body:
     attributes:
       label: 注意事项
       options:
-        - label: 提ISSUE请确认你已经在issue里搜索过，确保不存在和你类似的问题。
+        - label: 提ISSUE前，请确认你已经在issue里搜索过类似的问题，也许你的问题已经被解决过了
           required: true
 
   - type: dropdown
     attributes:
-      label: 使用方式
-      description: 你的使用方式？
+      label: 你使用的是那种方式？
       multiple: false
       options:
         - GitHub Actions
@@ -41,17 +40,18 @@ body:
     validations:
       required: true
 
-  - type: markdown
+  - type: textarea
     attributes:
-      value: |
-        简单描述一下你的目的
+      label: 你的目的？
+      placeholder: 简单描述一下你的目的
 
-  - type: markdown
+  - type: textarea
     attributes:
-      value: |
-        简单描述一下你的做法
+      label: 你的做法？
+      placeholder: 简单描述一下你的做法
 
-  - type: markdown
+  - type: textarea
     attributes:
-      value: |
-        简单描述一下你遇到的困难或者问题
+      label: 你遇到的问题？
+      placeholder: 简单描述一下你遇到的困难或者问题
+
