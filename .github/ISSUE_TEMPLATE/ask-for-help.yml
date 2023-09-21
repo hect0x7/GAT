@@ -17,6 +17,7 @@
 # 遇到什么困难？截图程序输出
 
 name: Ask For Help
+title: '[Help]'
 description: 使用求助
 labels: [ "help wanted" ]
 
@@ -30,7 +31,7 @@ body:
 
   - type: dropdown
     attributes:
-      label: 你使用的是那种方式？
+      label: 你使用的是哪种方式？
       multiple: false
       options:
         - GitHub Actions
