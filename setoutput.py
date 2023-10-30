@@ -10,9 +10,10 @@ def add_output(k, v):
         return
 
     for cmd in [
-        f'''echo "var<<EOF" >> $GITHUB_OUTPUT''',
+        '''delimiter="$(openssl rand -hex 8)"''',
+        '''echo "output-name<<${delimiter}" >> $GITHUB_OUTPUT''',
         f'''echo "{v}" >> $GITHUB_OUTPUT''',
-        '''echo "EOF" >> $GITHUB_OUTPUT''',
+        '''echo "${delimiter}" >> $GITHUB_OUTPUT''',
     ]:
         print(cmd, os.system(cmd))
 
@@ -29,7 +30,7 @@ def parse_body(body):
             continue
         points.append(f'{i}. {e}')
 
-    return '\n'.join(points)
+    return r'\n'.join(points)
 
 
 msg = sys.argv[1]
