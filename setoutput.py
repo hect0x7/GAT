@@ -10,9 +10,9 @@ def add_output(k, v):
         return
 
     for cmd in [
-        f'''echo 'var<<EOF' >> $GITHUB_OUTPUT''',
+        f'''echo "var<<EOF" >> $GITHUB_OUTPUT''',
         f'''echo "{v}" >> $GITHUB_OUTPUT''',
-        '''echo 'EOF' >> $GITHUB_OUTPUT''',
+        '''echo "EOF" >> $GITHUB_OUTPUT''',
     ]:
         print(cmd, os.system(cmd))
 
