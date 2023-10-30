@@ -35,5 +35,5 @@ jobs:
           tag_name: ${{ steps.extract.outputs.tag }}
           body: ${{ steps.extract.outputs.body }}
         with:
-          tag_name: tag_name
-          body: body
+          tag_name: ${{ env.tag_name }}
+          body: ${{ env.body }}
