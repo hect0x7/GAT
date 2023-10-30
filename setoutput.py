@@ -11,7 +11,7 @@ def add_output(k, v):
 
     for cmd in [
         '''delimiter="$(openssl rand -hex 8)"''',
-        '''echo "output-name<<${delimiter}" >> $GITHUB_OUTPUT''',
+        'echo "{' + k + '}<<${delimiter}" >> $GITHUB_OUTPUT',
         f'''echo "{v}" >> $GITHUB_OUTPUT''',
         '''echo "${delimiter}" >> $GITHUB_OUTPUT''',
     ]:
