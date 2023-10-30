@@ -4,8 +4,17 @@ import re
 
 
 def add_output(k, v):
-    cmd = f'echo -e "{k}={v}" >> $GITHUB_OUTPUT'
-    print(cmd, os.system(cmd))
+    if '\n' not in v:
+        cmd = f'echo -e "{k}={v}" >> $GITHUB_OUTPUT'
+        print(cmd, os.system(cmd))
+        return
+
+    for cmd in [
+        f'''echo 'var<<EOF' >> $GITHUB_OUTPUT''',
+        f'''echo "{v}" >> $GITHUB_OUTPUT''',
+        '''echo 'EOF' >> $GITHUB_OUTPUT''',
+    ]:
+        print(cmd, os.system(cmd))
 
 
 def parse_body(body):
@@ -20,7 +29,7 @@ def parse_body(body):
             continue
         points.append(f'{i}. {e}')
 
-    return r'\n'.join(points)
+    return '\n'.join(points)
 
 
 msg = sys.argv[1]
