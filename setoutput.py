@@ -1,4 +1,11 @@
-from common import *
+import os
+import sys
+import re
+
+
+def add_output(k, v):
+    cmd = f'echo {k}="{v}" >> $GITHUB_OUTPUT'
+    print(cmd, os.system(cmd))
 
 
 def parse_body(body):
@@ -9,19 +16,18 @@ def parse_body(body):
     points = []
     for i, e in enumerate(parts):
         e: str = e.strip()
+        if e == '':
+            continue
         points.append(f'{i}. {e}')
 
-    return '\\\n'.join(points)
+    return r'\r\n'.join(points)
 
 
-def add_output(k, v):
-    os.system(f'echo {k}={v} >> $GITHUB_OUTPUT')
-
-
-commit_message = sys.argv[1]
-p = compile('(.*?): ?(.*)')
-match = p.search(commit_message)
-assert match is not None, f'format is wrong: {commit_message}'
+msg = sys.argv[1]
+print(f'msg: {msg}')
+p = re.compile('(.*?): ?(.*)')
+match = p.search(msg)
+assert match is not None, f'commit message format is wrong: {msg}'
 
 tag, body = match[1], match[2]
 
