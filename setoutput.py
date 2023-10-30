@@ -2,19 +2,12 @@ import os
 import sys
 import re
 
+from common import write_text
+
 
 def add_output(k, v):
-    if r'\n' not in v:
-        cmd = f'echo -e "{k}={v}" >> $GITHUB_OUTPUT'
-        print(cmd, os.system(cmd))
-        return
-
-    for cmd in [
-        'echo "{' + k + '}<<EOF" >> $GITHUB_OUTPUT',
-        f'''echo "{v}" >> $GITHUB_OUTPUT''',
-        '''echo "EOF" >> $GITHUB_OUTPUT''',
-    ]:
-        print(cmd, os.system(cmd))
+    cmd = f'echo -e "{k}={v}" >> $GITHUB_OUTPUT'
+    print(cmd, os.system(cmd))
 
 
 def parse_body(body):
@@ -29,16 +22,25 @@ def parse_body(body):
             continue
         points.append(f'{i}. {e}')
 
-    return r'\n'.join(points)
+    return '\n'.join(points)
 
 
-msg = sys.argv[1]
-print(f'msg: {msg}')
-p = re.compile('(.*?): ?(.*)')
-match = p.search(msg)
-assert match is not None, f'commit message format is wrong: {msg}'
+def get_tag_and_body():
+    msg = sys.argv[1]
+    print(f'msg: {msg}')
+    p = re.compile('(.*?): ?(.*)')
+    match = p.search(msg)
+    assert match is not None, f'commit message format is wrong: {msg}'
+    tag, body = match[1], match[2]
+    return body, tag
 
-tag, body = match[1], match[2]
 
-add_output('body', parse_body(body))
-add_output('tag', tag)
+def main():
+    body, tag = get_tag_and_body()
+
+    add_output('tag', tag)
+
+    write_text('release_body.txt', parse_body(body))
+
+
+main()

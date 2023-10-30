@@ -34,4 +34,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.extract.outputs.tag }}
-          body: ${{ steps.extract.outputs.body }}
+          body_path: release_body.txt
