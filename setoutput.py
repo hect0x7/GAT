@@ -40,5 +40,5 @@ assert match is not None, f'commit message format is wrong: {msg}'
 
 tag, body = match[1], match[2]
 
-add_output('tag', tag)
 add_output('body', parse_body(body))
+add_output('tag', tag)
