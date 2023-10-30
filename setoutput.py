@@ -11,7 +11,7 @@ def parse_body(body):
         e: str = e.strip()
         points.append(f'{i}. {e}')
 
-    return '\\n'.join(points)
+    return '\\\n'.join(points)
 
 
 def add_output(k, v):
