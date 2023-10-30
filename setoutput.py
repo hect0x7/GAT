@@ -20,7 +20,7 @@ def parse_body(body):
             continue
         points.append(f'{i}. {e}')
 
-    return r'<br/>'.join(points)
+    return r'%0A'.join(points)
 
 
 msg = sys.argv[1]
