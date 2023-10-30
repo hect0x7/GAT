@@ -4,7 +4,7 @@ import re
 
 
 def add_output(k, v):
-    cmd = f'echo {k}="{v}" >> $GITHUB_OUTPUT'
+    cmd = f'echo -e {k}="{v}" >> $GITHUB_OUTPUT'
     print(cmd, os.system(cmd))
 
 
@@ -20,7 +20,7 @@ def parse_body(body):
             continue
         points.append(f'{i}. {e}')
 
-    return r'\n\\'.join(points)
+    return r'\n'.join(points)
 
 
 msg = sys.argv[1]
