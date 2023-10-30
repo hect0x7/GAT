@@ -4,7 +4,7 @@ import re
 
 
 def add_output(k, v):
-    cmd = f'echo -e {k}="{v}" >> $GITHUB_OUTPUT'
+    cmd = f'echo -e "{k}={v}" >> $GITHUB_OUTPUT'
     print(cmd, os.system(cmd))
 
 
