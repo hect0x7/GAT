@@ -9,7 +9,12 @@ on:
 jobs:
   close_pr:
     env:
-      comment: "To prevent beginners from mistakenly submitting PRs, if your PR only modifies the usage/workflow_download.py file, it will be automatically closed. If you really want to submit a PR, please reopen it yourself."
+      comment: |
+          To prevent beginners from mistakenly submitting PRs, 
+          if your PR only modifies the usage/workflow_download.py file, 
+          it will be automatically closed. 
+          If you really want to submit a PR, please reopen it yourself. 
+          Make sure you know what you are doing!
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
