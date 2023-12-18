@@ -63,10 +63,6 @@ jobs:
           git checkout dev
           pip install -e ./
 
-      - name: 安装jmcomic（local）
-        run: |
-          pip install -e ./
-
       - name: 执行代码
         run: |
           cd ./usage/
