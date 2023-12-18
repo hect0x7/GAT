@@ -59,6 +59,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           git clone https://github.com/hect0x7/JMComic-Crawler-Python.git
+          cd JMComic-Crawler-Python
           git checkout dev
           pip install -e ./
 
