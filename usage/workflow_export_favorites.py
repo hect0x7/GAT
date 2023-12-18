@@ -10,8 +10,10 @@ def prepare_actions_input_and_secrets():
 
         # 未配置secrets，尝试从工作流中取
         value = os.getenv(f'IN_{name}', '')
-        # 工作流也没有传值
-        ExceptionTool.require_true(value != '', f'未配置secrets或工作流，字段为: {name}')
+        # 工作流也没有传值，抛出异常
+        # 但是如果是EMAIL的配置，可以不配置
+        ExceptionTool.require_true(not name.startswith('EMAIL') and value != '', f'未配置secrets或工作流，字段为: {name}')
+
         return value
 
     JmcomicText.dsl_replacer.add_dsl_and_replacer(r'\$\{(.*?)\}', env)
