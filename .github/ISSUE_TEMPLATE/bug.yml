@@ -8,9 +8,9 @@ body:
     attributes:
       label: 注意事项
       options:
-        - label: 提ISSUE前，请确认你已经在GitHub Issues和Discussions里搜索过类似的问题，并且没找到想要的答案
+        - label: 提ISSUE前，请确认你已经在GitHub Issues和Discussions里搜索过类似的问题，并且没找到想要的答案。
           required: true
-        - label: GitHub Actions问题请到置顶的Issue反馈
+        - label: GitHub Actions问题请到置顶的Issue反馈。
           required: true
 
   - type: dropdown
@@ -20,6 +20,16 @@ body:
       options:
         - Python代码
         - jmcomic命令行
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: 你是否在禁漫官方网页或APP，验证过相应的功能是正常的？
+      multiple: false
+      options:
+        - 测试过，禁漫官方功能正常
+        - 我要反馈的bug无需验证/不方便验证
     validations:
       required: true
 

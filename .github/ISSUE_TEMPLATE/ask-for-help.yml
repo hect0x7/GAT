@@ -8,9 +8,8 @@ body:
     attributes:
       label: 注意事项
       options:
-        - label: 提ISSUE前，请确认你已经在issue里搜索过类似的问题，也许你的问题已经被解决过了
+        - label: 提ISSUE前，请确认你已经在GitHub Issues和Discussions里搜索过类似的问题，并且没找到想要的答案。
           required: true
-        - label: 是否是最新版本的jmcomic（GitHub Actions不用填）
 
   - type: dropdown
     attributes:
@@ -26,15 +25,14 @@ body:
   - type: textarea
     attributes:
       label: 你的目的？
-      placeholder: 简单描述一下你想要干什么
+      placeholder: 详细描述一下你想要干什么
 
   - type: textarea
     attributes:
-      label: 你的做法？
-      placeholder: 简单描述一下你做了啥
+      label: 你遇到的困难？
+      placeholder: 详细描述一下你有啥困难
 
   - type: textarea
     attributes:
-      label: 你遇到的问题？
-      placeholder: 简单描述一下你想问啥
-
+      label: 其他信息
+      placeholder: 如果有其他需要补充的信息，可以在这里留言
