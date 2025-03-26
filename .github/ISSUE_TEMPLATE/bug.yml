@@ -8,6 +8,8 @@ body:
     attributes:
       label: 注意事项
       options:
+        - label: 使用的是最新的jmcomic版本
+          required: true
         - label: 提ISSUE前，请确认你已经在GitHub Issues和Discussions里搜索过类似的问题，并且没找到想要的答案。
           required: true
         - label: GitHub Actions问题请到置顶的Issue反馈。
@@ -26,7 +28,7 @@ body:
   - type: dropdown
     attributes:
       label: 你是否在禁漫官方网页或APP，验证过相应的功能是正常的？
-      multiple: false
+      multiple: true
       options:
         - 测试过，禁漫官方功能正常
         - 我要反馈的bug无需验证/不方便验证
@@ -35,8 +37,11 @@ body:
 
   - type: textarea
     attributes:
-      label: option配置+源码/命令
-      placeholder: 贴一下你的option配置 + 你使用的python代码或命令，这会帮助开发者解决bug。
+      label: 代码/option配置
+      placeholder: |
+        - 如果是运行代码，请提供关键代码片段
+        - 如果有自定义option配置，请提供配置内容
+        - 如果是GitHub Actions，请提供运行记录的URL
 
   - type: textarea
     attributes:
@@ -47,6 +52,6 @@ body:
 
   - type: textarea
     attributes:
-      label: 其他信息
-      placeholder: 如果有其他需要补充的信息，可以在这里留言
+      label: 其他可提供的信息
+      placeholder: 截图/程序输出日志等
 

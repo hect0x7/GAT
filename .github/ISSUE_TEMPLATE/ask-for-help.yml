@@ -37,6 +37,5 @@ body:
       label: 额外信息（代码/option配置/截图等）
       placeholder: |
         - 如果是运行代码，请提供关键代码片段
-        - 如果是GitHub Actions，请提供运行记录的URL
         - 如果有自定义option配置，请提供配置内容
-        
+        - 如果是GitHub Actions，请提供运行记录的URL
