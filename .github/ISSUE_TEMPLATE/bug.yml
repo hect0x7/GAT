@@ -16,7 +16,7 @@ body:
   - type: dropdown
     attributes:
       label: 发生Bug时，你的使用方式？
-      multiple: false
+      multiple: true
       options:
         - Python代码
         - jmcomic命令行
