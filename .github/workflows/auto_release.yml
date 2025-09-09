@@ -28,8 +28,8 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         env:
-          generate_release_notes: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          generate_release_notes: true
           tag_name: ${{ steps.extract.outputs.tag }}
           body_path: release_body.txt
