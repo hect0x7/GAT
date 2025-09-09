@@ -26,8 +26,9 @@ jobs:
           python setoutput.py "$commit_message"
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         env:
+          generate_release_notes: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.extract.outputs.tag }}
