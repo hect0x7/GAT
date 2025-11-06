@@ -50,6 +50,7 @@ jobs:
       ALBUM_IDS: ${{ github.event.inputs.ALBUM_IDS }}
       JM_USERNAME: ${{ github.event.inputs.JM_USERNAME }}
       JM_PASSWORD: ${{ github.event.inputs.JM_PASSWORD }}
+      PDF_OPTION: ${{ github.event.inputs.PDF_OPTION }}
       ZIP_NAME: ${{ github.event.inputs.ZIP_NAME }}
       UPLOAD_NAME: ${{ github.event.inputs.UPLOAD_NAME }}
       # 固定值
