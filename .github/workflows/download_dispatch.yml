@@ -22,9 +22,8 @@ on:
         required: false
 
       PDF_OPTION:
-        description: '是否要下载后合并为pdf文件'
+        description: '是否要下载后将图片合并为pdf文件'
         required: false
-        default: '否'
         type: choice
         options:
           - 否
