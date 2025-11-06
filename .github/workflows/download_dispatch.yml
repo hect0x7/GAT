@@ -3,15 +3,6 @@ name: 下载JM本子
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: '是否要下载后合并为pdf文件'
-        required: false
-        default: '否'
-        type: choice
-        options:
-          - 否
-          - 是，一个本子对应一个pdf
-          - 是，一个章节对应一个pdf
       ALBUM_IDS:
         type: string
         description: 本子id（多个id用-隔开，如 '123-456-789'）
@@ -29,6 +20,16 @@ on:
         default: ''
         description: '禁漫密码（不建议使用，用户名和密码会泄露在日志中。最好用secrets）'
         required: false
+
+      PDF_OPTION:
+        description: '是否要下载后合并为pdf文件'
+        required: false
+        default: '否'
+        type: choice
+        options:
+          - 否
+          - 是 | 本子维度合并pdf
+          - 是 | 章节维度合并pdf
 
       ZIP_NAME:
         type: string
