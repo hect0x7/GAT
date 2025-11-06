@@ -9,9 +9,9 @@
 [![GitHub](https://img.shields.io/badge/-GitHub-181717?logo=github)](https://github.com/hect0x7)
 [![Stars](https://img.shields.io/github/stars/hect0x7/JMComic-Crawler-Python?color=orange&label=stars&style=flat)](https://github.com/hect0x7/JMComic-Crawler-Python/stargazers)
 [![Forks](https://img.shields.io/github/forks/hect0x7/JMComic-Crawler-Python?color=green&label=forks&style=flat)](https://github.com/hect0x7/JMComic-Crawler-Python/forks)
-[![GitHub latest releases](https://img.shields.io/github/v/release/hect0x7/JMComic-Crawler-Python?color=blue&label=release)](https://github.com/hect0x7/JMComic-Crawler-Python/releases/latest)
-[![PyPI - Downloads](https://img.shields.io/pypi/dm/jmcomic?style=flat&color=blue)](https://pepy.tech/projects/jmcomic)
-[![Licence](https://img.shields.io/github/license/hect0x7/JMComic-Crawler-Python?color=informational)](https://github.com/hect0x7/JMComic-Crawler-Python)
+[![GitHub latest releases](https://img.shields.io/github/v/release/hect0x7/JMComic-Crawler-Python?color=blue&label=version)](https://github.com/hect0x7/JMComic-Crawler-Python/releases/latest)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/jmcomic?style=flat&color=pink)](https://pepy.tech/projects/jmcomic)
+[![Licence](https://img.shields.io/github/license/hect0x7/JMComic-Crawler-Python?color=red)](https://github.com/hect0x7/JMComic-Crawler-Python)
 
 
 </div>
