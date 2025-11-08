@@ -1,7 +1,7 @@
 <!-- 顶部标题 & 统计徽章 -->
 <div align="center">
-  <h1 style="margin-top: 0" align="center">Python API for JMComic</h1>
-  <p align="center">
+  <h1>Python API for JMComic</h1>
+  <p>
   <strong>提供 Python API 访问禁漫天堂（网页端 & 移动端），集成 GitHub Actions 下载器🚀</strong>
   </p>
 
